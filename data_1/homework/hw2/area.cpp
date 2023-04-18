@@ -1,5 +1,5 @@
 #include"../../stack/stack.h"
-#include"../../../vector/vector.h"
+#include"../../vector/vector.h"
 #include<iostream>
 #include<cmath>
 #include<stdlib.h>
@@ -21,30 +21,30 @@ int main(){
         int n = heights.size();
         int area = 0;
         
-        //ÒÔmidÎªÖĞµãleftºÍright·Ö±ğÏò×óÓÒÒıÉìÕÒµ½ left - 1 < height[mid] ºÍ right + 1 < height[mid] Í£Ö¹
-    	//ÕâÑùµÄ»°left ºÍ rightÖ®¼äµÄ¸ß¶È¾Íheight[mid]×îĞ¡ÁË
-        //²»ÓÃ¾­³£È¥ËãÃæ»ıÁË
-    //Ã¶¾Ù¸ßmid ÊÇheightsÊı×éµÄÏÂ±ê;
+        //ä»¥midä¸ºä¸­ç‚¹leftå’Œrightåˆ†åˆ«å‘å·¦å³å¼•ä¼¸æ‰¾åˆ° left - 1 < height[mid] å’Œ right + 1 < height[mid] åœæ­¢
+    	//è¿™æ ·çš„è¯left å’Œ rightä¹‹é—´çš„é«˜åº¦å°±height[mid]æœ€å°äº†
+        //ä¸ç”¨ç»å¸¸å»ç®—é¢ç§¯äº†
+    //æšä¸¾é«˜mid æ˜¯heightsæ•°ç»„çš„ä¸‹æ ‡;
         for (int mid = 0; mid < n; ++mid) {
             
             int left = mid, right = mid;
     
-            // È·¶¨×óÓÒ±ß½ç
+            // ç¡®å®šå·¦å³è¾¹ç•Œ
             while (left - 1 >= 0 && heights[left - 1] >= heights[mid]) --left;
             
             while (right + 1 < n && heights[right + 1] >= heights[mid]) ++right;
             
-            // ¼ÆËãÃæ»ı
+            // è®¡ç®—é¢ç§¯
             area = max(area, (right - left + 1) * heights[mid]);
         }
         
-        	cout<<"Êı×éÊı¾İÎª£º"; 
+        	cout<<"æ•°ç»„æ•°æ®ä¸ºï¼š"; 
         	for (int i = 0; i < heights.size(); i++)
 		{
 			myprint(heights[i]);
 		}
 			cout<<endl;
-			cout<<"×î´óÃæ»ıÎª£º"; 
+			cout<<"æœ€å¤§é¢ç§¯ä¸ºï¼š"; 
         	cout<<area<<endl;
         return 0;
 }
